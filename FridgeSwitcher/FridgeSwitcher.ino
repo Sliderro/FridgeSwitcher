@@ -76,8 +76,6 @@ void loop() {
   if (millis() - tempTime > eedata.freq) {
     measureTemp();
   }
-  Serial.println(inMenu);
-  Serial.println(inSubMenu);
   checkButton();
   inMenuTimeout();
   OLED();
@@ -87,10 +85,6 @@ void loop() {
   } else {
     digitalWrite(RELAY, LOW);
   }
-  Serial.println(encoderPos);
-  Serial.println((long) encoderPos % 32);
-  Serial.println(((long) encoderPos % 32) + 3);
-  Serial.println((((long) encoderPos % 32) + 3) * 1000);
 }
 
 void IncEnc() {
