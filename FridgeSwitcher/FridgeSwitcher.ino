@@ -193,7 +193,7 @@ void displayTemp() {
   if (relayState) {
     strcpy(state, "Wlacz.  ");
   } else {
-    strcat(state, "Wylacz. ");
+    strcpy(state, "Wylacz. ");
   }
   strcat(state, "C.");
   sprintf(freq, "%s%ds", state, eedata.freq / 1000);
@@ -324,10 +324,10 @@ void saveEedata(){
 }
 
 void relaySwitcher(){
-  if(temp < eedata.tempMax - eedata.tempRange){
+  if(temp <= eedata.tempMax - eedata.tempRange){
     relayState = false;
   }
-  if(temp > eedata.tempMax + eedata.tempRange){
+  if(temp >= eedata.tempMax + eedata.tempRange){
     relayState = true;
   }
 }
